@@ -1,5 +1,5 @@
 //
-//  DefaultNetworkProviderConfiguration.swift
+//  DefaultNetworkProviderConfigurator.swift
 //  KyuNetworkExtensions
 //
 //  Created by Chayanon Ardkham on 6/10/20.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-public protocol DefaultNetworkProviderConfiguration: class {
+public protocol DefaultNetworkProviderConfigurator: class {
     func requestPrerequisiteProcesses(completion: @escaping () -> Void)
 }
 
-public extension DefaultNetworkProviderConfiguration {
+public extension DefaultNetworkProviderConfigurator {
     func requestPrerequisiteProcesses(completion: @escaping () -> Void) {
         completion()
     }

@@ -13,12 +13,14 @@ import ObjectMapper
 public class DefaultNetworkProvider<T: TargetType> {
     
     private var provider: MoyaProvider<T>!
-    weak var configuration: DefaultNetworkProviderConfiguration?
+    private weak var configurator: DefaultNetworkProviderConfigurator?
     
     private init() {}
-    public convenience init(provider: MoyaProvider<T>) {
+    public convenience init(configuration: AppProviderConfiguration? = nil) {
         self.init()
-        self.provider = provider
+        
+        self.provider = MoyaProvider<T>()
+        self.configuration = configuration
     }
     
     private func performRequest(route: T, success: @escaping (Response) -> Void, error: @escaping (Error) -> Void) {
@@ -35,7 +37,7 @@ public class DefaultNetworkProvider<T: TargetType> {
     }
     
     public func requestPlain(route: T, success: @escaping (Response) -> Void, error: @escaping (Error) -> Void) {
-        if let configuration = configuration {
+        if let configuration = configurator {
             configuration.requestPrerequisiteProcesses(completion: {
                 self.performRequest(route: route, success: success, error: error)
             })

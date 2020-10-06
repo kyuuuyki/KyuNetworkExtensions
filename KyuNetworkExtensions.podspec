@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KyuNetworkExtensions'
-  s.version          = '0.1.2'
+  s.version          = '1.0.0'
   s.swift_version    = '5'
   s.summary          = 'The Swift Network Extensions.'
 

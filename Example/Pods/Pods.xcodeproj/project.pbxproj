@@ -12,7 +12,7 @@
 		6B5BAF08016F2AFD97DD531CB93893A1 /* KyuNetworkExtensions-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E9E762157AA5390892EBA00E6BDFC2B /* KyuNetworkExtensions-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9042421948412371D1DBA5E2C49862D7 /* Pods-KyuNetworkExtensions_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 69EF8FE175D4477DA439399288027842 /* Pods-KyuNetworkExtensions_Tests-dummy.m */; };
 		A06A62E0252C692400DB28F6 /* DefaultNetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A62DF252C692400DB28F6 /* DefaultNetworkProvider.swift */; };
-		A06A62E4252C697100DB28F6 /* DefaultNetworkProviderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A62E3252C697100DB28F6 /* DefaultNetworkProviderConfiguration.swift */; };
+		A06A62E4252C697100DB28F6 /* DefaultNetworkProviderConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A62E3252C697100DB28F6 /* DefaultNetworkProviderConfigurator.swift */; };
 		AFD1A03DBED792C68C8AF9B8153ED0CB /* Pods-KyuNetworkExtensions_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 35A22FEE7151967DC3E1F4780672CD1E /* Pods-KyuNetworkExtensions_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7F239DEDF2D9B2768E357AF6C140EA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -47,7 +47,7 @@
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E9E762157AA5390892EBA00E6BDFC2B /* KyuNetworkExtensions-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KyuNetworkExtensions-umbrella.h"; sourceTree = "<group>"; };
 		A06A62DF252C692400DB28F6 /* DefaultNetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultNetworkProvider.swift; path = KyuNetworkExtensions/Classes/DefaultNetworkProvider.swift; sourceTree = "<group>"; };
-		A06A62E3252C697100DB28F6 /* DefaultNetworkProviderConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultNetworkProviderConfiguration.swift; path = KyuNetworkExtensions/Classes/DefaultNetworkProviderConfiguration.swift; sourceTree = "<group>"; };
+		A06A62E3252C697100DB28F6 /* DefaultNetworkProviderConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultNetworkProviderConfigurator.swift; path = KyuNetworkExtensions/Classes/DefaultNetworkProviderConfigurator.swift; sourceTree = "<group>"; };
 		A52FD90901541FAAB89408F07E99AB30 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C17B8E0DCF7A3589FCCB454E9A3CE103 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D5B4456571C1B288DC97A0956E159FC5 /* Pods-KyuNetworkExtensions_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KyuNetworkExtensions_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				A06A62DF252C692400DB28F6 /* DefaultNetworkProvider.swift */,
-				A06A62E3252C697100DB28F6 /* DefaultNetworkProviderConfiguration.swift */,
+				A06A62E3252C697100DB28F6 /* DefaultNetworkProviderConfigurator.swift */,
 				C665AA13EB7724299CBCB19617AADD14 /* Pod */,
 				3A3A2122654CF442AA0ADCD8D3DAD730 /* Support Files */,
 			);
@@ -305,7 +305,7 @@
 			files = (
 				1AE4D9B51FBF2169E9A7126C06BF390A /* KyuNetworkExtensions-dummy.m in Sources */,
 				A06A62E0252C692400DB28F6 /* DefaultNetworkProvider.swift in Sources */,
-				A06A62E4252C697100DB28F6 /* DefaultNetworkProviderConfiguration.swift in Sources */,
+				A06A62E4252C697100DB28F6 /* DefaultNetworkProviderConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
