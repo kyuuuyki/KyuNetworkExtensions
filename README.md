@@ -1,15 +1,20 @@
 # KyuNetworkExtensions
 
-[![CI Status](https://img.shields.io/travis/Chayanon Ardkham/KyuNetworkExtensions.svg?style=flat)](https://travis-ci.org/Chayanon Ardkham/KyuNetworkExtensions)
-[![Version](https://img.shields.io/cocoapods/v/KyuNetworkExtensions.svg?style=flat)](https://cocoapods.org/pods/KyuNetworkExtensions)
-[![License](https://img.shields.io/cocoapods/l/KyuNetworkExtensions.svg?style=flat)](https://cocoapods.org/pods/KyuNetworkExtensions)
-[![Platform](https://img.shields.io/cocoapods/p/KyuNetworkExtensions.svg?style=flat)](https://cocoapods.org/pods/KyuNetworkExtensions)
-
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+<p>
+  <!---<img src="https://img.shields.io/cocoapods/dt/KyuNetworkExtensions.svg?maxAge=86400" alt="Downloads"/>--->  
+  <!---<img src="https://img.shields.io/cocoapods/at/KyuNetworkExtensions.svg?maxAge=86400" alt="Apps"/>--->
+  <a href="https://cocoapods.org/pods/KyuNetworkExtensions"><img src="https://img.shields.io/cocoapods/v/KyuNetworkExtensions.svg?style=flat" alt="Language: Swift 5+" /></a>
+  <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift-5+-4BC51D.svg?style=flat" alt="Language: Swift 5+" /></a>
+  <img src="https://img.shields.io/badge/iOS-13+-blue.svg?style=flat" alt="Platform: iOS 13+"/>
+  <img src="http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat" alt="License: MIT" />
+  <a href="https://twitter.chayanon.dev"><img src="https://img.shields.io/badge/twitter-kyuuuyki-blue.svg?style=flat" alt="Twitter: kyuuuyki" /></a> <br><br>
+</p>
 
 ## Requirements
+
+- iOS 13.0+
+- Xcode 11.0+
+- Swift 5+
 
 ## Installation
 
@@ -22,7 +27,7 @@ pod 'KyuNetworkExtensions'
 
 ## Author
 
-Chayanon Ardkham, apple@chayanon.dev
+[Chayanon Ardkham](https://linkedin.chayanon.dev), contact@chayanon.dev
 
 ## License
 

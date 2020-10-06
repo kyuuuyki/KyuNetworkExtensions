@@ -15,11 +15,11 @@
 		607FACE51AFB9204008FA782 /* KyuNetworkExtensions_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KyuNetworkExtensions_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		74434DA5D710ADC493A1D9F7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		74434DA5D710ADC493A1D9F7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9CA6F271F07C6581CEABC4C3 /* Pods-KyuNetworkExtensions_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KyuNetworkExtensions_Tests.release.xcconfig"; path = "Target Support Files/Pods-KyuNetworkExtensions_Tests/Pods-KyuNetworkExtensions_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9CF4016DDF23C238DB7EFFFF /* Pods_KyuNetworkExtensions_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KyuNetworkExtensions_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C99B88F36CF2ED8BCF9CD70A /* KyuNetworkExtensions.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = KyuNetworkExtensions.podspec; path = ../KyuNetworkExtensions.podspec; sourceTree = "<group>"; };
-		D77F642FF03B29133EA507EB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C99B88F36CF2ED8BCF9CD70A /* KyuNetworkExtensions.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = KyuNetworkExtensions.podspec; path = ../KyuNetworkExtensions.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D77F642FF03B29133EA507EB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D86A6751B6CA068CD232C28A /* Pods-KyuNetworkExtensions_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KyuNetworkExtensions_Tests.debug.xcconfig"; path = "Target Support Files/Pods-KyuNetworkExtensions_Tests/Pods-KyuNetworkExtensions_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,7 +49,6 @@
 				D86A6751B6CA068CD232C28A /* Pods-KyuNetworkExtensions_Tests.debug.xcconfig */,
 				9CA6F271F07C6581CEABC4C3 /* Pods-KyuNetworkExtensions_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -131,10 +130,6 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
-					607FACCF1AFB9204008FA782 = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0900;
-					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
@@ -147,6 +142,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

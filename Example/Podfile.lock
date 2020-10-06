@@ -1,0 +1,16 @@
+PODS:
+  - KyuNetworkExtensions (0.1.0)
+
+DEPENDENCIES:
+  - KyuNetworkExtensions (from `../`)
+
+EXTERNAL SOURCES:
+  KyuNetworkExtensions:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KyuNetworkExtensions: 7311bb443434eac6421c258448c0d241f151a3b8
+
+PODFILE CHECKSUM: 504b90ff44b1a80f8a4e0e0564c69671ca1686e3
+
+COCOAPODS: 1.9.3

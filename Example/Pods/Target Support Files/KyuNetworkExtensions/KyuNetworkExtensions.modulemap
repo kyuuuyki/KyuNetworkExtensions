@@ -1,0 +1,6 @@
+framework module KyuNetworkExtensions {
+  umbrella header "KyuNetworkExtensions-umbrella.h"
+
+  export *
+  module * { export * }
+}
