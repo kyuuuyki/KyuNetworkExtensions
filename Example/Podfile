@@ -1,0 +1,6 @@
+use_frameworks!
+target 'KyuNetworkExtensions_Tests' do
+  pod 'KyuNetworkExtensions', :path => '../'
+  
+  
+end
