@@ -3,54 +3,43 @@
 //  KyuNetworkExtensions
 //
 
-//  swiftlint:disable function_parameter_count
+//  swiftlint:disable function_parameter_count line_length
 
 import Foundation
 import Moya
 
 // MARK: - CLASS
-public struct KSPNetworkProvider<T: TargetType, E: KSPNetworkErrorDecodable> {
-	// MARK: PRIVATE MODEL
-	private weak var configurator: KSPNetworkConfigurator?
-	private var provider: MoyaProvider<T>!
-	private var configuration: KSPNetworkConfiguration!
+public struct KSPNetworkProvider<T: TargetType, E: KSPNetworkErrorProtocol> {
+	// MARK: MODEL
+	public var provider: MoyaProvider<T>!
+	public weak var handler: KSPNetworkHandler?
 	
 	// MARK: INITIALIZATION
 	public init(
-		configuration: KSPNetworkConfiguration,
-		configurator: KSPNetworkConfigurator? = nil
+		endpointClosure: @escaping MoyaProvider<T>.EndpointClosure = MoyaProvider<T>.defaultEndpointMapping,
+		requestClosure: @escaping MoyaProvider<T>.RequestClosure = MoyaProvider<T>.defaultRequestMapping,
+		stubClosure: @escaping MoyaProvider<T>.StubClosure = MoyaProvider<T>.neverStub,
+		callbackQueue: DispatchQueue? = nil,
+		session: Session = MoyaProvider<T>.defaultAlamofireSession(),
+		plugins: [PluginType] = [],
+		trackInflights: Bool = false
 	) {
-		let stubClosure: MoyaProvider<T>.StubClosure = { _ in
-			return configuration.stubBehavior
-		}
-		
-		let endpointClosure = { (target: T) -> Endpoint in
-			let url = URL(target: target).absoluteString
-			let sampleResponseClosure: Endpoint.SampleResponseClosure = {
-				.networkResponse(200, target.sampleData)
-			}
-			return Endpoint(
-				url: url,
-				sampleResponseClosure: sampleResponseClosure,
-				method: target.method,
-				task: target.task,
-				httpHeaderFields: target.headers
-			)
-		}
-		
 		self.provider = MoyaProvider<T>(
 			endpointClosure: endpointClosure,
+			requestClosure: requestClosure,
 			stubClosure: stubClosure,
-			plugins: configuration.plugins
+			callbackQueue: callbackQueue,
+			session: session,
+			plugins: plugins,
+			trackInflights: trackInflights
 		)
-		self.configurator = configurator
 	}
 	
 	// MARK: PROVIDED PUBLIC FUNCTIONS
 	/// Perform request without object mapping.
 	public func requestPlain(route: T, completion: @escaping (Result<Response, E>) -> Void) {
-		if let configurator = configurator {
-			configurator.prerequisiteProcessesForRequest(for: self) {
+		if let handler = handler {
+			handler.prerequisiteProcessesForRequest(for: self) {
 				self.performRequest(route: route, completion: completion)
 			}
 		} else {
@@ -195,8 +184,8 @@ private extension KSPNetworkProvider {
 		completion: @escaping (Result<Any, E>) -> Void
 	) {
 		if maxAttempts >= 0 {
-			if let configurator = self.configurator {
-				configurator.prerequisiteProcessesForRetryRequest(for: self, previousError: error) {
+			if let handler = self.handler {
+				handler.prerequisiteProcessesForRetryRequest(for: self, previousError: error) {
 					self.request(
 						isRequestingArrayOfObjects: isRequestingArrayOfObjects,
 						type: type,

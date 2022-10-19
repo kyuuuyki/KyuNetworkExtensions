@@ -1,12 +1,12 @@
 //
-//  KSPNetworkErrorDecodable.swift
+//  KSPNetworkErrorProtocol.swift
 //  KyuNetworkExtensions
 //
 
 import Foundation
 import Moya
 
-public protocol KSPNetworkErrorDecodable: Decodable, Error {
+public protocol KSPNetworkErrorProtocol: Decodable, Error {
 	var statusCode: Int { get set }
 	
 	init(response: Response?)
