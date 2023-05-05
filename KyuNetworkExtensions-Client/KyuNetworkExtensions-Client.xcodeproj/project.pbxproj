@@ -13,6 +13,9 @@
 		C5542458283CEFA4000CD77B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5542456283CEFA4000CD77B /* Main.storyboard */; };
 		C554245A283CEFA6000CD77B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5542459283CEFA6000CD77B /* Assets.xcassets */; };
 		C554245D283CEFA6000CD77B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C554245B283CEFA6000CD77B /* LaunchScreen.storyboard */; };
+		C5E0B4572A05197300DBFC16 /* build.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5E0B4562A05197300DBFC16 /* build.yml */; };
+		C5E0B4592A05197D00DBFC16 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5E0B4582A05197D00DBFC16 /* .swiftlint.yml */; };
+		C5E0B45B2A05198300DBFC16 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C5E0B45A2A05198300DBFC16 /* README.md */; };
 		C5E88EA928412BCF00EA2DDF /* KyuNetworkExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C5E88EA828412BCF00EA2DDF /* KyuNetworkExtensions */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +29,9 @@
 		C554245C283CEFA6000CD77B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C554245E283CEFA6000CD77B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5542465283CEFBC000CD77B /* KyuNetworkExtensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KyuNetworkExtensions; path = ..; sourceTree = "<group>"; };
+		C5E0B4562A05197300DBFC16 /* build.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = build.yml; sourceTree = "<group>"; };
+		C5E0B4582A05197D00DBFC16 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		C5E0B45A2A05198300DBFC16 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,9 @@
 		C5542444283CEFA4000CD77B = {
 			isa = PBXGroup;
 			children = (
+				C5E0B45A2A05198300DBFC16 /* README.md */,
+				C5E0B4582A05197D00DBFC16 /* .swiftlint.yml */,
+				C5E0B4542A05197300DBFC16 /* .github */,
 				C5542464283CEFBC000CD77B /* Packages */,
 				C554244F283CEFA4000CD77B /* KyuNetworkExtensions-Client */,
 				C554244E283CEFA4000CD77B /* Products */,
@@ -78,6 +87,23 @@
 				C5542465283CEFBC000CD77B /* KyuNetworkExtensions */,
 			);
 			name = Packages;
+			sourceTree = "<group>";
+		};
+		C5E0B4542A05197300DBFC16 /* .github */ = {
+			isa = PBXGroup;
+			children = (
+				C5E0B4552A05197300DBFC16 /* workflows */,
+			);
+			name = .github;
+			path = ../.github;
+			sourceTree = "<group>";
+		};
+		C5E0B4552A05197300DBFC16 /* workflows */ = {
+			isa = PBXGroup;
+			children = (
+				C5E0B4562A05197300DBFC16 /* build.yml */,
+			);
+			path = workflows;
 			sourceTree = "<group>";
 		};
 		C5E88EA728412BCF00EA2DDF /* Frameworks */ = {
@@ -149,7 +175,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5E0B45B2A05198300DBFC16 /* README.md in Resources */,
+				C5E0B4592A05197D00DBFC16 /* .swiftlint.yml in Resources */,
 				C554245D283CEFA6000CD77B /* LaunchScreen.storyboard in Resources */,
+				C5E0B4572A05197300DBFC16 /* build.yml in Resources */,
 				C554245A283CEFA6000CD77B /* Assets.xcassets in Resources */,
 				C5542458283CEFA4000CD77B /* Main.storyboard in Resources */,
 			);
