@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire.git",
       "state" : {
-        "revision" : "bc268c28fb170f494de9e9927c371b8342979ece",
-        "version" : "5.7.1"
+        "revision" : "b2fa556e4e48cbf06cf8c63def138c98f4b811fa",
+        "version" : "5.8.0"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kyuuuyki/KyuGenericExtensions.git",
       "state" : {
-        "revision" : "534913246c3be22efbff804d6113aee64b9abab1",
-        "version" : "1.0.0"
+        "revision" : "9da4c93269bea20ce8d1fb7f7e625d72a4d01196",
+        "version" : "1.1.0"
       }
     },
     {
