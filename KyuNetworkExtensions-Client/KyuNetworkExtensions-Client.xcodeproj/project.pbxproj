@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		C5542458283CEFA4000CD77B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5542456283CEFA4000CD77B /* Main.storyboard */; };
 		C554245A283CEFA6000CD77B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5542459283CEFA6000CD77B /* Assets.xcassets */; };
 		C554245D283CEFA6000CD77B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C554245B283CEFA6000CD77B /* LaunchScreen.storyboard */; };
+		C557A3812A3324BD004958F9 /* KyuNetworkExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C557A3802A3324BD004958F9 /* KyuNetworkExtensions */; };
+		C58CD8972A3324F9004712C0 /* KyuNetworkExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = C58CD8962A3324F9004712C0 /* KyuNetworkExtensions */; };
 		C5E0B4572A05197300DBFC16 /* build.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5E0B4562A05197300DBFC16 /* build.yml */; };
 		C5E0B4592A05197D00DBFC16 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5E0B4582A05197D00DBFC16 /* .swiftlint.yml */; };
 		C5E0B45B2A05198300DBFC16 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C5E0B45A2A05198300DBFC16 /* README.md */; };
@@ -41,6 +43,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5E88EA928412BCF00EA2DDF /* KyuNetworkExtensions in Frameworks */,
+				C58CD8972A3324F9004712C0 /* KyuNetworkExtensions in Frameworks */,
+				C557A3812A3324BD004958F9 /* KyuNetworkExtensions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +138,8 @@
 			name = "KyuNetworkExtensions-Client";
 			packageProductDependencies = (
 				C5E88EA828412BCF00EA2DDF /* KyuNetworkExtensions */,
+				C557A3802A3324BD004958F9 /* KyuNetworkExtensions */,
+				C58CD8962A3324F9004712C0 /* KyuNetworkExtensions */,
 			);
 			productName = "KyuNetworkExtensions-Client";
 			productReference = C554244D283CEFA4000CD77B /* KyuNetworkExtensions-Client.app */;
@@ -163,6 +169,9 @@
 				Base,
 			);
 			mainGroup = C5542444283CEFA4000CD77B;
+			packageReferences = (
+				C58CD8952A3324F9004712C0 /* XCLocalSwiftPackageReference ".." */,
+			);
 			productRefGroup = C554244E283CEFA4000CD77B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -436,7 +445,22 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		C58CD8952A3324F9004712C0 /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		C557A3802A3324BD004958F9 /* KyuNetworkExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KyuNetworkExtensions;
+		};
+		C58CD8962A3324F9004712C0 /* KyuNetworkExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KyuNetworkExtensions;
+		};
 		C5E88EA828412BCF00EA2DDF /* KyuNetworkExtensions */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = KyuNetworkExtensions;
