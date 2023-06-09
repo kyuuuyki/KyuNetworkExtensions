@@ -29,6 +29,7 @@
 		C554245C283CEFA6000CD77B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C554245E283CEFA6000CD77B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5542465283CEFBC000CD77B /* KyuNetworkExtensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KyuNetworkExtensions; path = ..; sourceTree = "<group>"; };
+		C58CD8982A3325A2004712C0 /* PULL_REQUEST_TEMPLATE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PULL_REQUEST_TEMPLATE.md; sourceTree = "<group>"; };
 		C5E0B4562A05197300DBFC16 /* build.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = build.yml; sourceTree = "<group>"; };
 		C5E0B4582A05197D00DBFC16 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C5E0B45A2A05198300DBFC16 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				C5E0B4552A05197300DBFC16 /* workflows */,
+				C58CD8982A3325A2004712C0 /* PULL_REQUEST_TEMPLATE.md */,
 			);
 			name = .github;
 			path = ../.github;
