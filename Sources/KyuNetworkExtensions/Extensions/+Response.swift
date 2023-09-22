@@ -34,7 +34,7 @@ public extension Response {
 				with: data,
 				options: .allowFragments
 			) as AnyObject
-			if let path = path {
+			if let path {
 				let nestedKeys = path.components(separatedBy: ".")
 				for nestedKey in nestedKeys {
 					guard let nestedObject = jsonObject.value(forKeyPath: nestedKey) else {

@@ -2,6 +2,8 @@
 //  MediaLibraryAPITarget.swift
 //  KyuNetworkExtensions-Client
 //
+//  swiftlint:disable discouraged_optional_collection
+//  swiftlint:disable force_unwrapping
 
 import Foundation
 import KyuNetworkExtensions
@@ -27,7 +29,7 @@ extension MediaLibraryAPITarget: TargetType {
 	}
 	
 	var headers: [String: String]? {
-		return nil
+		nil
 	}
 	
 	var method: Moya.Method {
@@ -38,7 +40,7 @@ extension MediaLibraryAPITarget: TargetType {
 	}
 	
 	var sampleData: Data {
-		return Data()
+		Data()
 	}
 	
 	var task: Task {

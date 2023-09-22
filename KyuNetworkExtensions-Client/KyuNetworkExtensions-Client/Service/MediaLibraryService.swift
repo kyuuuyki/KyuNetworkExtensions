@@ -7,11 +7,11 @@ import Foundation
 import KyuNetworkExtensions
 import Moya
 
-public struct MediaLibraryService: MediaLibraryServiceProtocol {
+public class MediaLibraryService: MediaLibraryServiceProtocol {
 	public static var moduleName: String = "KyuNetworkExtensions-Client.MediaLibraryService"
 	
 	let apiKey: String
-	let provider: KSPNetworkProvider<
+	var provider: KSPNetworkProvider<
 		MediaLibraryAPITarget,
 		MediaLibraryServiceErrorDTO
 	>
@@ -27,6 +27,7 @@ public struct MediaLibraryService: MediaLibraryServiceProtocol {
 		
 		self.apiKey = apiKey
 		self.provider = provider
+		self.provider.handler = self
 	}
 	
 	// MARK: - GET APOD
@@ -34,14 +35,38 @@ public struct MediaLibraryService: MediaLibraryServiceProtocol {
 		case notFound
 	}
 	public func getAPOD(date: Date) async throws -> MediaLibraryAPODItemProtocol {
-		let item = try await provider.async.requestObject(
+		let item = try await provider.requestObject(
 			type: MediaLibraryAPODItemDTO.self,
-			route: .apodByDate(apiKey: apiKey, date: date)
+			route: .apodByDate(apiKey: apiKey, date: date),
+			retries: 1
 		)
-		if let item, let apodItem = MediaLibraryAPODItem(item: item) {
+		if let apodItem = MediaLibraryAPODItem(item: item) {
 			return apodItem
-		} else {
-			throw GetAPODError.notFound
 		}
+		throw GetAPODError.notFound
+	}
+}
+
+extension MediaLibraryService: KSPNetworkHandler {
+	public func prerequisiteProcessesForRequest<T, E>(
+		for provider: KSPNetworkProvider<T, E>,
+		route: T
+	) async where T: TargetType, E: KSPNetworkErrorProtocol {
+		print("------------------------------------------------------------")
+		print("KSPAsyncNetworkHandler - Before Request")
+		print("------------------------------------------------------------")
+		print(route)
+	}
+	
+	public func prerequisiteProcessesForRetryRequest<T, E>(
+		for provider: KSPNetworkProvider<T, E>,
+		route: T,
+		error: Error
+	) async where T: TargetType, E: KSPNetworkErrorProtocol {
+		print("------------------------------------------------------------")
+		print("KSPAsyncNetworkHandler - Before Retry Request")
+		print("------------------------------------------------------------")
+		print(route)
+		print(error.localizedDescription)
 	}
 }
