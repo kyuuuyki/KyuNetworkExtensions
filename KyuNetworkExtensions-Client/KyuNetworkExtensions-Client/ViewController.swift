@@ -2,6 +2,7 @@
 //  ViewController.swift
 //  KyuNetworkExtensions-Client
 //
+//  swiftlint:disable prohibited_interface_builder
 
 import UIKit
 
@@ -16,7 +17,7 @@ class ViewController: UIViewController {
 			do {
 				let apodItem = try await mediaLibraryService.getAPOD(date: Date())
 				self.textView.text = apodItem.description
-			} catch let error {
+			} catch {
 				self.textView.text = error.localizedDescription
 			}
 		}

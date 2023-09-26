@@ -2,6 +2,7 @@
 //  AppDelegate.swift
 //  KyuNetworkExtensions-Client
 //
+//  swiftlint:disable discouraged_optional_collection
 
 import UIKit
 
@@ -11,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		_ application: UIApplication,
 		didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
 	) -> Bool {
-		return true
+		true
 	}
 	
 	// MARK: UISceneSession Lifecycle
@@ -20,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		configurationForConnecting connectingSceneSession: UISceneSession,
 		options: UIScene.ConnectionOptions
 	) -> UISceneConfiguration {
-		return UISceneConfiguration(
+		UISceneConfiguration(
 			name: "Default Configuration",
 			sessionRole: connectingSceneSession.role
 		)

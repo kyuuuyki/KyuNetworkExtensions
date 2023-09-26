@@ -21,7 +21,7 @@ struct MediaLibraryServiceErrorDTO: KSPNetworkErrorProtocol {
 	}
 	
 	init(response: Response?) {
-		if let response = response {
+		if let response {
 			let moyaError = MoyaError.statusCode(response)
 			self.init(moyaError: moyaError)
 		} else {
