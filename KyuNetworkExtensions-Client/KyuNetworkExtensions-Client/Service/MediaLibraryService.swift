@@ -36,6 +36,7 @@ public class MediaLibraryService: MediaLibraryServiceProtocol {
 		let item = try await provider.requestObject(
 			type: MediaLibraryAPODItemDTO.self,
 			route: .apodByDate(date: date),
+			errorPath: "error",
 			retries: 1
 		)
 		if let apodItem = MediaLibraryAPODItem(item: item) {
@@ -49,7 +50,7 @@ extension MediaLibraryService: KSPNetworkHandler {
 	public func prerequisiteProcessesForRequest<T, E>(
 		for provider: KSPNetworkProvider<T, E>,
 		route: T
-	) async where T: TargetType, E: KSPNetworkErrorProtocol {
+	) async where T: TargetType, E: DecodableError {
 		print("------------------------------------------------------------")
 		print("KSPAsyncNetworkHandler - Before Request")
 		print("------------------------------------------------------------")
@@ -65,12 +66,12 @@ extension MediaLibraryService: KSPNetworkHandler {
 		for provider: KSPNetworkProvider<T, E>,
 		route: T,
 		error: Error
-	) async where T: TargetType, E: KSPNetworkErrorProtocol {
+	) async where T: TargetType, E: DecodableError {
 		print("------------------------------------------------------------")
 		print("KSPAsyncNetworkHandler - Before Retry Request")
 		print("------------------------------------------------------------")
 		print(route)
-		print(error.localizedDescription)
+		print(error)
 		
 		await withCheckedContinuation { continuation in
 			sharedAPIKey = "DEMO_KEY"

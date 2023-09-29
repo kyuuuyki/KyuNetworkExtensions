@@ -8,8 +8,10 @@
 import Foundation
 import Moya
 
+public typealias DecodableError = Decodable & Error
+
 // MARK: - CLASS
-public struct KSPNetworkProvider<T: TargetType, E: KSPNetworkErrorProtocol> {
+public struct KSPNetworkProvider<T: TargetType, E: DecodableError> {
 	// MARK: MODEL
 	public var provider: MoyaProvider<T>
 	public weak var handler: KSPNetworkHandler?
