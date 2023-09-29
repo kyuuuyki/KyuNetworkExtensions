@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C54F5B492AC7339D00B0C629 /* MediaLibraryServiceErrorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F5B482AC7339D00B0C629 /* MediaLibraryServiceErrorProtocol.swift */; };
 		C5542451283CEFA4000CD77B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5542450283CEFA4000CD77B /* AppDelegate.swift */; };
 		C5542453283CEFA4000CD77B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5542452283CEFA4000CD77B /* SceneDelegate.swift */; };
 		C5542455283CEFA4000CD77B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5542454283CEFA4000CD77B /* ViewController.swift */; };
@@ -21,7 +22,6 @@
 		C58CD8A22A3327F0004712C0 /* MediaLibraryAPODItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD8A12A3327F0004712C0 /* MediaLibraryAPODItemProtocol.swift */; };
 		C58CD8A42A332837004712C0 /* MediaLibraryAPODItemDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD8A32A332837004712C0 /* MediaLibraryAPODItemDTO.swift */; };
 		C58CD8A62A33286F004712C0 /* MediaLibraryServiceErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD8A52A33286E004712C0 /* MediaLibraryServiceErrorDTO.swift */; };
-		C58CD8A82A3328DA004712C0 /* MediaLibraryAPODItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58CD8A72A3328DA004712C0 /* MediaLibraryAPODItem.swift */; };
 		C5E0B4572A05197300DBFC16 /* build.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5E0B4562A05197300DBFC16 /* build.yml */; };
 		C5E0B4592A05197D00DBFC16 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = C5E0B4582A05197D00DBFC16 /* .swiftlint.yml */; };
 		C5E0B45B2A05198300DBFC16 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C5E0B45A2A05198300DBFC16 /* README.md */; };
@@ -29,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C54F5B482AC7339D00B0C629 /* MediaLibraryServiceErrorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLibraryServiceErrorProtocol.swift; sourceTree = "<group>"; };
 		C554244D283CEFA4000CD77B /* KyuNetworkExtensions-Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KyuNetworkExtensions-Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5542450283CEFA4000CD77B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5542452283CEFA4000CD77B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +46,6 @@
 		C58CD8A12A3327F0004712C0 /* MediaLibraryAPODItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLibraryAPODItemProtocol.swift; sourceTree = "<group>"; };
 		C58CD8A32A332837004712C0 /* MediaLibraryAPODItemDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLibraryAPODItemDTO.swift; sourceTree = "<group>"; };
 		C58CD8A52A33286E004712C0 /* MediaLibraryServiceErrorDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLibraryServiceErrorDTO.swift; sourceTree = "<group>"; };
-		C58CD8A72A3328DA004712C0 /* MediaLibraryAPODItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLibraryAPODItem.swift; sourceTree = "<group>"; };
 		C5E0B4562A05197300DBFC16 /* build.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = build.yml; sourceTree = "<group>"; };
 		C5E0B4582A05197D00DBFC16 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C5E0B45A2A05198300DBFC16 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -123,7 +123,6 @@
 		C58CD8A02A3327CA004712C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C58CD8AA2A3328F4004712C0 /* Entities */,
 				C58CD8A92A3328EB004712C0 /* DTOs */,
 			);
 			path = Model;
@@ -138,18 +137,11 @@
 			path = DTOs;
 			sourceTree = "<group>";
 		};
-		C58CD8AA2A3328F4004712C0 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				C58CD8A72A3328DA004712C0 /* MediaLibraryAPODItem.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
 		C58CD8AB2A3328FD004712C0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				C58CD8A12A3327F0004712C0 /* MediaLibraryAPODItemProtocol.swift */,
+				C54F5B482AC7339D00B0C629 /* MediaLibraryServiceErrorProtocol.swift */,
 				C58CD89E2A3327A2004712C0 /* MediaLibraryServiceProtocol.swift */,
 			);
 			path = Protocols;
@@ -288,9 +280,9 @@
 				C5542455283CEFA4000CD77B /* ViewController.swift in Sources */,
 				C58CD8A22A3327F0004712C0 /* MediaLibraryAPODItemProtocol.swift in Sources */,
 				C5542451283CEFA4000CD77B /* AppDelegate.swift in Sources */,
+				C54F5B492AC7339D00B0C629 /* MediaLibraryServiceErrorProtocol.swift in Sources */,
 				C58CD89D2A332716004712C0 /* MediaLibraryAPITarget.swift in Sources */,
 				C58CD89C2A332716004712C0 /* MediaLibraryService.swift in Sources */,
-				C58CD8A82A3328DA004712C0 /* MediaLibraryAPODItem.swift in Sources */,
 				C5542453283CEFA4000CD77B /* SceneDelegate.swift in Sources */,
 				C58CD8A42A332837004712C0 /* MediaLibraryAPODItemDTO.swift in Sources */,
 			);

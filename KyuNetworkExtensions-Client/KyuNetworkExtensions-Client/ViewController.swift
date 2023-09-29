@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 				let apodItem = try await mediaLibraryService.getAPOD(date: Date())
 				self.textView.text = apodItem.description
 			} catch {
-				self.textView.text = error.localizedDescription
+				self.textView.text = String(describing: error)
 			}
 		}
 	}

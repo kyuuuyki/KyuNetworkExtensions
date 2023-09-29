@@ -29,20 +29,13 @@ public class MediaLibraryService: MediaLibraryServiceProtocol {
 	}
 	
 	// MARK: - GET APOD
-	public enum GetAPODError: Error {
-		case notFound
-	}
 	public func getAPOD(date: Date) async throws -> MediaLibraryAPODItemProtocol {
-		let item = try await provider.requestObject(
+		try await provider.requestObject(
 			type: MediaLibraryAPODItemDTO.self,
 			route: .apodByDate(date: date),
 			errorPath: "error",
 			retries: 1
 		)
-		if let apodItem = MediaLibraryAPODItem(item: item) {
-			return apodItem
-		}
-		throw GetAPODError.notFound
 	}
 }
 

@@ -6,7 +6,7 @@
 import Foundation
 import KyuNetworkExtensions
 
-struct MediaLibraryServiceErrorDTO: Decodable, Error {
+struct MediaLibraryServiceErrorDTO: Decodable, MediaLibraryServiceErrorProtocol {
 	let code: String
 	let message: String
 }
