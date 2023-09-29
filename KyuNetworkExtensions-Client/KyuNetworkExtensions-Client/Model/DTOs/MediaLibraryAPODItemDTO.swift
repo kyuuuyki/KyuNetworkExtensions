@@ -6,14 +6,14 @@
 import Foundation
 import KyuNetworkExtensions
 
-struct MediaLibraryAPODItemDTO: Codable {
+struct MediaLibraryAPODItemDTO: Decodable {
 	let date: String?
 	let explanation: String?
 	let hdurl: String?
 	let mediaType: String?
 	let serviceVersion: String?
-	let title: String?
-	let url: String?
+	let title: String
+	let url: String
 	
 	enum CodingKeys: String, CodingKey {
 		case date
@@ -25,17 +25,6 @@ struct MediaLibraryAPODItemDTO: Codable {
 		case url
 	}
 	
-	func encode(to encoder: Encoder) throws {
-		var container = encoder.container(keyedBy: CodingKeys.self)
-		try container.encode(date, forKey: .date)
-		try container.encode(explanation, forKey: .explanation)
-		try container.encode(hdurl, forKey: .hdurl)
-		try container.encode(mediaType, forKey: .mediaType)
-		try container.encode(serviceVersion, forKey: .serviceVersion)
-		try container.encode(title, forKey: .title)
-		try container.encode(url, forKey: .url)
-	}
-	
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		date = try container.decodeIfPresent(String.self, forKey: .date)
@@ -43,7 +32,7 @@ struct MediaLibraryAPODItemDTO: Codable {
 		hdurl = try container.decodeIfPresent(String.self, forKey: .hdurl)
 		mediaType = try container.decodeIfPresent(String.self, forKey: .mediaType)
 		serviceVersion = try container.decodeIfPresent(String.self, forKey: .serviceVersion)
-		title = try container.decodeIfPresent(String.self, forKey: .title)
-		url = try container.decodeIfPresent(String.self, forKey: .url)
+		title = try container.decode(String.self, forKey: .title)
+		url = try container.decode(String.self, forKey: .url)
 	}
 }

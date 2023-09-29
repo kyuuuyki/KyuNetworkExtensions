@@ -21,8 +21,7 @@ struct MediaLibraryAPODItem: MediaLibraryAPODItemProtocol {
 			return nil
 		}
 		
-		guard let urlString = item.url,
-			  let encodedUrlString = urlString.addingPercentEncoding(
+		guard let encodedUrlString = item.url.addingPercentEncoding(
 				withAllowedCharacters: .urlQueryAllowed
 			  ),
 			  let url = URL(string: encodedUrlString)
@@ -31,7 +30,7 @@ struct MediaLibraryAPODItem: MediaLibraryAPODItemProtocol {
 		}
 		
 		self.date = date
-		self.title = item.title ?? ""
+		self.title = item.title
 		self.description = item.explanation
 		self.imageUrl = url
 		self.imageHDUrl = URL(string: item.hdurl ?? "")
