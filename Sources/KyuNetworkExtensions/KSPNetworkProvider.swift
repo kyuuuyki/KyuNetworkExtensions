@@ -8,10 +8,8 @@
 import Foundation
 import Moya
 
-public typealias DecodableError = Decodable & Error
-
 // MARK: - CLASS
-public struct KSPNetworkProvider<T: TargetType, E: DecodableError> {
+public struct KSPNetworkProvider<T: TargetType, E: KSPNetworkErrorProtocol> {
 	// MARK: MODEL
 	public var provider: MoyaProvider<T>
 	public weak var handler: KSPNetworkHandler?
@@ -57,7 +55,9 @@ public struct KSPNetworkProvider<T: TargetType, E: DecodableError> {
 			do {
 				return try response.map(type: O.self, nestedAtKeyPath: path)
 			} catch {
-				throw (try? response.map(type: E.self, nestedAtKeyPath: errorPath)) ?? error
+				var codableError = try? response.map(type: E.self, nestedAtKeyPath: errorPath)
+				codableError?.response = response.response
+				throw codableError ?? error
 			}
 		} catch {
 			if retries > 0 {
@@ -91,7 +91,9 @@ public struct KSPNetworkProvider<T: TargetType, E: DecodableError> {
 			do {
 				return try response.mapArray(type: O.self, nestedAtKeyPath: path)
 			} catch {
-				throw (try? response.map(type: E.self, nestedAtKeyPath: errorPath)) ?? error
+				var codableError = try? response.map(type: E.self, nestedAtKeyPath: errorPath)
+				codableError?.response = response.response
+				throw codableError ?? error
 			}
 		} catch {
 			if retries > 0 {

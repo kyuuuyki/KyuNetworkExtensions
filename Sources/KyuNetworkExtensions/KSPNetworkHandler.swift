@@ -9,12 +9,12 @@ import Moya
 // MARK: - DATASOURCE
 public protocol KSPNetworkHandler: AnyObject {
 	/// User-defined processes before perform any request.
-	func prerequisiteProcessesForRequest<T: TargetType, E: DecodableError>(
+	func prerequisiteProcessesForRequest<T: TargetType, E: KSPNetworkErrorProtocol>(
 		for provider: KSPNetworkProvider<T, E>,
 		route: T
 	) async
 	/// User-defined processes before retry any request.
-	func prerequisiteProcessesForRetryRequest<T: TargetType, E: DecodableError>(
+	func prerequisiteProcessesForRetryRequest<T: TargetType, E: KSPNetworkErrorProtocol>(
 		for provider: KSPNetworkProvider<T, E>,
 		route: T,
 		error: Error

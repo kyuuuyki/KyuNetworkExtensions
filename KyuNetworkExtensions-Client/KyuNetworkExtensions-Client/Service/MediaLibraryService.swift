@@ -43,7 +43,7 @@ extension MediaLibraryService: KSPNetworkHandler {
 	public func prerequisiteProcessesForRequest<T, E>(
 		for provider: KSPNetworkProvider<T, E>,
 		route: T
-	) async where T: TargetType, E: DecodableError {
+	) async where T: TargetType, E: KSPNetworkErrorProtocol {
 		print("------------------------------------------------------------")
 		print("KSPAsyncNetworkHandler - Before Request")
 		print("------------------------------------------------------------")
@@ -59,7 +59,7 @@ extension MediaLibraryService: KSPNetworkHandler {
 		for provider: KSPNetworkProvider<T, E>,
 		route: T,
 		error: Error
-	) async where T: TargetType, E: DecodableError {
+	) async where T: TargetType, E: KSPNetworkErrorProtocol {
 		print("------------------------------------------------------------")
 		print("KSPAsyncNetworkHandler - Before Retry Request")
 		print("------------------------------------------------------------")

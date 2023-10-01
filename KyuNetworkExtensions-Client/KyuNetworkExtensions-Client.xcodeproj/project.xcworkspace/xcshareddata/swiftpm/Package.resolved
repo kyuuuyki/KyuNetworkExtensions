@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kyuuuyki/KyuGenericExtensions.git",
       "state" : {
-        "revision" : "9da4c93269bea20ce8d1fb7f7e625d72a4d01196",
-        "version" : "1.1.0"
+        "revision" : "e0e852a155d0d3a1f968a2d2107d68bd4b029d75",
+        "version" : "1.2.0"
       }
     },
     {
