@@ -4,9 +4,13 @@
 //
 
 import Foundation
+import KyuGenericExtensions
 import KyuNetworkExtensions
+import Moya
 
-struct MediaLibraryServiceErrorDTO: Decodable, MediaLibraryServiceErrorProtocol {
+struct MediaLibraryServiceErrorDTO: KSPNetworkErrorProtocol {
+	@CodableIgnored var response: HTTPURLResponse?
+	
 	let code: String
 	let message: String
 }
