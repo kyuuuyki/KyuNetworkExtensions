@@ -10,7 +10,7 @@ import KyuNetworkExtensions
 import Moya
 
 enum MediaLibraryAPITarget {
-	case apodByDate(apiKey: String, date: Date)
+	case apodByDate(date: Date)
 }
 
 extension MediaLibraryAPITarget: TargetType {
@@ -45,9 +45,9 @@ extension MediaLibraryAPITarget: TargetType {
 	
 	var task: Task {
 		switch self {
-		case .apodByDate(let apiKey, let date):
+		case .apodByDate(let date):
 			let parameters = [
-				"api_key": apiKey,
+				"api_key": sharedAPIKey,
 				"date": String(date: date, format: "yyyy-MM-dd")
 			]
 			return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)

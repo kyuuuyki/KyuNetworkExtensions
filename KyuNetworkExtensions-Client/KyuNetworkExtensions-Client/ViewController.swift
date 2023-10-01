@@ -13,12 +13,12 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		
 		Task {
-			let mediaLibraryService = MediaLibraryService(apiKey: "DEMO_KEY")
+			let mediaLibraryService = MediaLibraryService(apiKey: "INVALID_API_KEY")
 			do {
 				let apodItem = try await mediaLibraryService.getAPOD(date: Date())
 				self.textView.text = apodItem.description
 			} catch {
-				self.textView.text = error.localizedDescription
+				self.textView.text = String(describing: error)
 			}
 		}
 	}
