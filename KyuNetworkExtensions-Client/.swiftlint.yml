@@ -7,6 +7,7 @@ opt_in_rules:
 
 # Disabled Rules
 disabled_rules:
+  - accessibility_label_for_image
   - blanket_disable_command
   - closure_body_length
   - conditional_returns_on_newline

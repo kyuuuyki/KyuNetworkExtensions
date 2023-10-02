@@ -67,7 +67,11 @@ extension MediaLibraryService: KSPNetworkHandler {
 		print(error)
 		
 		await withCheckedContinuation { continuation in
-			sharedAPIKey = "DEMO_KEY"
+			if let error = error as? KSPNetworkErrorProtocol,
+			   error.response?.status == .unauthorized || error.response?.status == .forbidden {
+				sharedAPIKey = "DEMO_KEY"
+			}
+			
 			continuation.resume()
 		}
 	}
