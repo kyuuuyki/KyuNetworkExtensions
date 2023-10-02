@@ -15,7 +15,8 @@ class ViewController: UIViewController {
 		Task {
 			let mediaLibraryService = MediaLibraryService(apiKey: "INVALID_API_KEY")
 			do {
-				let apodItem = try await mediaLibraryService.getAPOD(date: Date())
+				let date = Calendar.current.date(byAdding: .day, value: -1, to: Date()) ?? Date()
+				let apodItem = try await mediaLibraryService.getAPOD(date: date)
 				self.textView.text = apodItem.description
 			} catch {
 				self.textView.text = String(describing: error)
