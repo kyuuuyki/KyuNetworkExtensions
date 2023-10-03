@@ -2,7 +2,6 @@
 //  KSPNetworkProvider.swift
 //  KyuNetworkExtensions
 //
-//  swiftlint:disable line_length
 //  swiftlint:disable vertical_whitespace_between_cases
 
 import Foundation
@@ -15,24 +14,9 @@ public struct KSPNetworkProvider<T: TargetType, E: KSPNetworkErrorProtocol> {
 	public weak var handler: KSPNetworkHandler?
 	
 	// MARK: INITIALIZATION
-	public init(
-		endpointClosure: @escaping MoyaProvider<T>.EndpointClosure = MoyaProvider<T>.defaultEndpointMapping,
-		requestClosure: @escaping MoyaProvider<T>.RequestClosure = MoyaProvider<T>.defaultRequestMapping,
-		stubClosure: @escaping MoyaProvider<T>.StubClosure = MoyaProvider<T>.neverStub,
-		callbackQueue: DispatchQueue? = nil,
-		session: Session = MoyaProvider<T>.defaultAlamofireSession(),
-		plugins: [PluginType] = [],
-		trackInflights: Bool = false
-	) {
-		self.provider = MoyaProvider<T>(
-			endpointClosure: endpointClosure,
-			requestClosure: requestClosure,
-			stubClosure: stubClosure,
-			callbackQueue: callbackQueue,
-			session: session,
-			plugins: plugins,
-			trackInflights: trackInflights
-		)
+	public init(provider: MoyaProvider<T> = MoyaProvider<T>(), handler: KSPNetworkHandler? = nil) {
+		self.provider = provider
+		self.handler = handler
 	}
 	
 	// MARK: PROVIDED PUBLIC FUNCTIONS
@@ -43,7 +27,7 @@ public struct KSPNetworkProvider<T: TargetType, E: KSPNetworkErrorProtocol> {
 	}
 	
 	/// Perform request and map response's data to specific object type.
-	public func requestObject<O: Decodable>(
+	public func request<O: Decodable>(
 		type: O.Type,
 		route: T,
 		path: String? = nil,
@@ -55,9 +39,9 @@ public struct KSPNetworkProvider<T: TargetType, E: KSPNetworkErrorProtocol> {
 			do {
 				return try response.map(type: O.self, nestedAtKeyPath: path)
 			} catch {
-				var codableError = try? response.map(type: E.self, nestedAtKeyPath: errorPath)
-				codableError?.response = response.response
-				throw codableError ?? error
+				var decodedError = try? response.map(type: E.self, nestedAtKeyPath: errorPath)
+				decodedError?.response = response.response
+				throw decodedError ?? error
 			}
 		} catch {
 			if retries > 0 {
@@ -66,43 +50,7 @@ public struct KSPNetworkProvider<T: TargetType, E: KSPNetworkErrorProtocol> {
 					route: route,
 					error: error
 				)
-				return try await requestObject(
-					type: type,
-					route: route,
-					path: path,
-					errorPath: errorPath,
-					retries: retries - 1
-				)
-			}
-			throw error
-		}
-	}
-	
-	/// Perform request and map response's data to specific object type in array form.
-	public func requestObjects<O: Decodable>(
-		type: O.Type,
-		route: T,
-		path: String? = nil,
-		errorPath: String? = nil,
-		retries: Int = 0
-	) async throws -> [O] {
-		do {
-			let response = try await requestPlain(route: route)
-			do {
-				return try response.mapArray(type: O.self, nestedAtKeyPath: path)
-			} catch {
-				var codableError = try? response.map(type: E.self, nestedAtKeyPath: errorPath)
-				codableError?.response = response.response
-				throw codableError ?? error
-			}
-		} catch {
-			if retries > 0 {
-				await handler?.prerequisiteProcessesForRetryRequest(
-					for: self,
-					route: route,
-					error: error
-				)
-				return try await requestObjects(
+				return try await request(
 					type: type,
 					route: route,
 					path: path,
