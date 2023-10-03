@@ -17,33 +17,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zyd-BO-V37">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z5J-H4-GKe">
+                                <rect key="frame" x="12" y="59" width="369" height="759"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7rh-u9-WuU">
+                                        <rect key="frame" x="0.0" y="0.0" width="369" height="375.66666666666669"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Requesting Object" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6f-CW-91o">
+                                                <rect key="frame" x="0.0" y="0.0" width="369" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="J0T-ky-yI6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="zyd-BO-V37">
+                                                <rect key="frame" x="0.0" y="40" width="369" height="335.66666666666669"/>
+                                                <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DQg-1V-HC3">
+                                        <rect key="frame" x="0.0" y="383.66666666666674" width="369" height="375.33333333333326"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Requesting Multiple Objects" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eD3-WB-1hc">
+                                                <rect key="frame" x="0.0" y="0.0" width="369" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="4cc-If-MPU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Eb0-an-yMx">
+                                                <rect key="frame" x="0.0" y="40" width="369" height="335.33333333333331"/>
+                                                <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7rh-u9-WuU" firstAttribute="height" secondItem="DQg-1V-HC3" secondAttribute="height" id="qXl-2E-OFU"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zyd-BO-V37" secondAttribute="trailing" id="S2e-wE-Fbp"/>
-                            <constraint firstItem="zyd-BO-V37" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XJA-oW-HTy"/>
-                            <constraint firstItem="zyd-BO-V37" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XhX-gU-MnT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zyd-BO-V37" secondAttribute="bottom" id="bCR-kN-OXT"/>
+                            <constraint firstItem="z5J-H4-GKe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="Xbz-JP-WHf"/>
+                            <constraint firstItem="z5J-H4-GKe" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-12" id="jhn-h4-gcD"/>
+                            <constraint firstItem="z5J-H4-GKe" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="rt2-JT-36x"/>
+                            <constraint firstItem="z5J-H4-GKe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tcl-dd-qlR"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="textView" destination="zyd-BO-V37" id="tPO-pM-AoV"/>
+                        <outlet property="objectTextView" destination="zyd-BO-V37" id="h9k-Wu-PVg"/>
+                        <outlet property="objectsTextView" destination="Eb0-an-yMx" id="bdW-Ze-DKJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="-2"/>
+            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -28,11 +28,24 @@ public class MediaLibraryService: MediaLibraryServiceProtocol {
 		self.provider.handler = self
 	}
 	
-	// MARK: - GET APOD
+	// MARK: GET APOD
 	public func getAPOD(date: Date) async throws -> MediaLibraryAPODItemProtocol {
-		try await provider.requestObject(
+		try await provider.request(
 			type: MediaLibraryAPODItemDTO.self,
 			route: .apodByDate(date: date),
+			errorPath: "error",
+			retries: 1
+		)
+	}
+	
+	// MARK: GET APOD LIST
+	public func getAPODList(
+		fromDate: Date,
+		toDate: Date
+	) async throws -> [MediaLibraryAPODItemProtocol] {
+		try await provider.request(
+			type: [MediaLibraryAPODItemDTO].self,
+			route: .apodByDateRange(fromDate: fromDate, toDate: toDate),
 			errorPath: "error",
 			retries: 1
 		)
