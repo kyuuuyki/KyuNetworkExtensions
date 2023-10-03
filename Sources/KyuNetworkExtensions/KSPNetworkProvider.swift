@@ -2,7 +2,6 @@
 //  KSPNetworkProvider.swift
 //  KyuNetworkExtensions
 //
-//  swiftlint:disable line_length
 //  swiftlint:disable vertical_whitespace_between_cases
 
 import Foundation
@@ -15,24 +14,9 @@ public struct KSPNetworkProvider<T: TargetType, E: KSPNetworkErrorProtocol> {
 	public weak var handler: KSPNetworkHandler?
 	
 	// MARK: INITIALIZATION
-	public init(
-		endpointClosure: @escaping MoyaProvider<T>.EndpointClosure = MoyaProvider<T>.defaultEndpointMapping,
-		requestClosure: @escaping MoyaProvider<T>.RequestClosure = MoyaProvider<T>.defaultRequestMapping,
-		stubClosure: @escaping MoyaProvider<T>.StubClosure = MoyaProvider<T>.neverStub,
-		callbackQueue: DispatchQueue? = nil,
-		session: Session = MoyaProvider<T>.defaultAlamofireSession(),
-		plugins: [PluginType] = [],
-		trackInflights: Bool = false
-	) {
-		self.provider = MoyaProvider<T>(
-			endpointClosure: endpointClosure,
-			requestClosure: requestClosure,
-			stubClosure: stubClosure,
-			callbackQueue: callbackQueue,
-			session: session,
-			plugins: plugins,
-			trackInflights: trackInflights
-		)
+	public init(provider: MoyaProvider<T> = MoyaProvider<T>(), handler: KSPNetworkHandler? = nil) {
+		self.provider = provider
+		self.handler = handler
 	}
 	
 	// MARK: PROVIDED PUBLIC FUNCTIONS
