@@ -16,5 +16,5 @@ jobs:
         uses: actions/checkout@v3
       - name: Build
         run: |
-          cd KyuNetworkExtensions-Client
-          xcodebuild clean build -scheme KyuNetworkExtensions-Client -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14'
+          cd Demo
+          xcodebuild clean build -scheme Demo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 14'
