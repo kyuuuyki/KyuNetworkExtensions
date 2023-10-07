@@ -8,7 +8,9 @@ import KyuGenericExtensions
 import KyuNetworkExtensions
 import Moya
 
-struct MediaLibraryServiceErrorDTO: KSPNetworkErrorProtocol {
+struct MediaLibraryServiceErrorDTO: MediaLibraryServiceErrorProtocol, KSPNetworkErrorProtocol {
+	@CodableIgnored var data: Data?
+	@CodableIgnored var request: URLRequest?
 	@CodableIgnored var response: HTTPURLResponse?
 	
 	let code: String
