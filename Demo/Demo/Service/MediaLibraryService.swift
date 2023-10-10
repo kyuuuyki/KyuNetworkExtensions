@@ -7,7 +7,8 @@ import Foundation
 import KyuNetworkExtensions
 import Moya
 
-public var sharedAPIKey = ""
+public var sharedAPIKey = "INVALID_API_KEY"
+private let kValidAPIKey = "DEMO_KEY"
 
 public class MediaLibraryService: MediaLibraryServiceProtocol {
 	public static var moduleName: String = "KyuNetworkExtensions-Client.MediaLibraryService"
@@ -17,15 +18,22 @@ public class MediaLibraryService: MediaLibraryServiceProtocol {
 		MediaLibraryServiceErrorDTO
 	>
 	
-	public init(apiKey: String) {
+	public init() {
 		let provider = KSPNetworkProvider<
 			MediaLibraryAPITarget,
 			MediaLibraryServiceErrorDTO
 		>()
-		
-		sharedAPIKey = apiKey
 		self.provider = provider
 		self.provider.handler = self
+	}
+	
+	// MARK: CHECK APOD
+	public func checkAPOD(date: Date) async throws {
+		try await provider.request(
+			route: .apodByDate(date: date),
+			errorPath: "error",
+			retries: 1
+		)
 	}
 	
 	// MARK: GET APOD
@@ -57,13 +65,13 @@ extension MediaLibraryService: KSPNetworkHandler {
 		for provider: KSPNetworkProvider<T, E>,
 		route: T
 	) async where T: TargetType, E: KSPNetworkErrorProtocol {
-		print("------------------------------------------------------------")
-		print("KSPAsyncNetworkHandler - Before Request")
-		print("------------------------------------------------------------")
-		print(route)
-		print("api_key: \(sharedAPIKey)")
-		
 		await withCheckedContinuation { continuation in
+			print("------------------------------------------------------------")
+			print("KSPAsyncNetworkHandler - Before Request")
+			print("------------------------------------------------------------")
+			print(route)
+			print("api_key: \(sharedAPIKey)")
+			
 			continuation.resume()
 		}
 	}
@@ -73,16 +81,17 @@ extension MediaLibraryService: KSPNetworkHandler {
 		route: T,
 		error: Error
 	) async where T: TargetType, E: KSPNetworkErrorProtocol {
-		print("------------------------------------------------------------")
-		print("KSPAsyncNetworkHandler - Before Retry Request")
-		print("------------------------------------------------------------")
-		print(route)
-		print(error)
-		
 		await withCheckedContinuation { continuation in
+			print("------------------------------------------------------------")
+			print("KSPAsyncNetworkHandler - Before Retry Request")
+			print("------------------------------------------------------------")
+			print(route)
+			print(error)
+			
 			if let error = error as? KSPNetworkErrorProtocol,
-			   error.response?.status == .unauthorized || error.response?.status == .forbidden {
-				sharedAPIKey = "DEMO_KEY"
+			   let status = error.response?.status,
+			   status == .unauthorized || status == .forbidden {
+				sharedAPIKey = kValidAPIKey
 			}
 			
 			continuation.resume()
